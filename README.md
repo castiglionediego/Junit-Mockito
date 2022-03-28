@@ -1,26 +1,37 @@
-# Junit-Mockito
+# Junit-Mockito 
 
-Junit:
-Assertions: 
-assertThrows
-assertAll
+Es un repo que se prueba todas las funcionalidades tanto de Junit 5 como Mockito, se divide en diferentes proyectos como se muestra a continuación:
+* Junit
+* Mockito
+* Sprint Boot: Test de Servicio
+* Sprint Boot: Test de Repositorios
+* Sprint Boot: Test de Controladores con MockMvc
+* Sprint Boot: Test de Integración de Servicios Rest con WebTestClient
+* Sprint Boot: Test de Integración de Servicios Rest con TestRestTemplate
 
-Anotaciones:
-DisplayName
-Disabled
-BeforeAll
-AfterAll
-BeforeEach
-AfterEach
+[**Apuntes**](https://www.notion.so/JUnit-5-4737cc9d03164842b407e8270e101dc3)
 
-Test Condicionales
-EnabledOnOs
-EnabledOnJre
-EnabledIfSystemProperty
+**Junit-Assertions:**
+* Assertions: 
+* assertThrows
+* assertAll
 
-Clases Anidadas:
-Nested
+**Junit-Anotaciones:**
+* DisplayName
+* Disabled
+* BeforeAll
+* AfterAll
+* BeforeEach
+* AfterEach
 
-Repitiendo Pruebas:
-RepeatTest
-ParameterizedTest
+**Junit-Test Condicionales**
+* EnabledOnOs
+* EnabledOnJre
+* EnabledIfSystemProperty
+
+**Junit-Clases Anidadas:**
+* Nested
+
+**Junit-Repitiendo Pruebas:**
+* RepeatTest
+* ParameterizedTest
