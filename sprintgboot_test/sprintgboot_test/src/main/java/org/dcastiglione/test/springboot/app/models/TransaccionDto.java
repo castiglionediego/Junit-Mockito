@@ -9,6 +9,16 @@ public class TransaccionDto {
     private BigDecimal monto;
     private Long bancoId;
 
+    public TransaccionDto() {
+    }
+
+    public TransaccionDto(Long cuentaOrigenId, Long cuentaDestinoId, BigDecimal monto, Long bancoId) {
+        this.cuentaOrigenId = cuentaOrigenId;
+        this.cuentaDestinoId = cuentaDestinoId;
+        this.monto = monto;
+        this.bancoId = bancoId;
+    }
+
     public Long getBancoId() {
         return bancoId;
     }
