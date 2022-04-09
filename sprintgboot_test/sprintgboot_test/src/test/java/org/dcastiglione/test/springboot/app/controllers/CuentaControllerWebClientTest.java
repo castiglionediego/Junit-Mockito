@@ -156,4 +156,52 @@ class CuentaControllerWebClientTest {
 
     }
 
+    @Test
+    @Order(6)
+    void testGuardar() {
+
+        //given
+        Cuenta cuenta = new Cuenta(null, "Diego", new BigDecimal("3000"));
+
+        //when
+        client.post().uri("api/cuentas")
+                .contentType(MediaType.APPLICATION_JSON)
+                .bodyValue(cuenta)
+        .exchange()
+         //then
+        .expectStatus().isCreated()
+        .expectHeader().contentType(MediaType.APPLICATION_JSON)
+        .expectBody()
+        .jsonPath("$.persona").isEqualTo("Diego")
+        .jsonPath("$.id").isEqualTo(3)
+        .jsonPath("$.saldo").isEqualTo(3000)
+        ;
+    }
+
+    @Test
+    @Order(7)
+    void testGuardar2() {
+
+        //given
+        Cuenta cuenta = new Cuenta(null, "Flor", new BigDecimal("3000"));
+
+        //when
+        client.post().uri("api/cuentas")
+                .contentType(MediaType.APPLICATION_JSON)
+                .bodyValue(cuenta)
+                .exchange()
+                //then
+                .expectStatus().isCreated()
+                .expectHeader().contentType(MediaType.APPLICATION_JSON)
+                .expectBody(Cuenta.class)
+        .consumeWith(response -> {
+            Cuenta cuenta1 = response.getResponseBody();
+            assertNotNull(cuenta1);
+            assertEquals("Flor", cuenta1.getPersona());
+            assertEquals(4, cuenta1.getId());
+            assertEquals(3000, cuenta1.getSaldo().intValue());
+
+        });
+    }
+
 }
